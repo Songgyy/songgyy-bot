@@ -5,6 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
+    "start": "node src/server.sj",
     "new-command": "node src/scripts/new-command.js"
   },
   "author": "Gabriel Petry",
