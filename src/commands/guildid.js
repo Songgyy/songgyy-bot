@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
 
     run: async (client, message, args) => {
-        await message.send(`Your guild id is **${message.guild.id}**`);
+        await message.channel.send(`Your guild id is **${message.guild.id}**`);
     },
 
     help: {
