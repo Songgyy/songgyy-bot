@@ -7,6 +7,5 @@ module.exports = {
     if (!result)
       return [];
     return result.data.playlists;
-
   }
 };
