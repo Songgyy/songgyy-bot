@@ -15,5 +15,18 @@ a playlist for a battle in the forest and so on.
 The api to provide usage is currently in *beta* and not finished, but you can
 check it out in [songyy-api](https://github.com/gabrielpetry/songyy-api).
 
+## Cool, but I don't wanna use the api
 
+You still can use the bot system, but a lot of the comands won't work.
+What you can do?
+```
+.help
+.join // this is mandatory
+.play <youtube_link>
+.pause
+.resume
+.stop
+.leave // Cleans up memory
+
+```
 ## Fell free to contact, help and suggest improvements to the project ;) 
