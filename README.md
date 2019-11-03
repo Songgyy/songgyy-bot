@@ -30,3 +30,6 @@ What you can do?
 
 ```
 ## Fell free to contact, help and suggest improvements to the project ;) 
+
+## Todo
+[  ] change errors "miau, i'm rebooting"
