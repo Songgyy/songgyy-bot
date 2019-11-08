@@ -3,7 +3,9 @@ const Playlists = require("../controllers/playlists");
 
 module.exports = {
   run: async (client, message, args) => {
-    let playlists = await Playlists.getPlaylists();
+    const { id } = message.guild;
+
+    let playlists = await Playlists.getPlaylists(id);
 
     let embed = {
       color: client.theme.color,
