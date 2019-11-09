@@ -21,7 +21,7 @@ module.exports = {
 
     serverQueue.playlist = playlist;
 
-    let songs = await Songs.getSongs(playlist);
+    let songs = await Songs.getSongs(playlist, message.guild.id);
 
     if (songs.length < 1) return message.channel.send("No songs here");
 
