@@ -32,6 +32,8 @@ module.exports = {
       serverQueue.connection.dispatcher.end();
     }
 
+    if (!songs)
+      return;
     serverQueue.songs = songs;
     player.play(serverQueue, message);
   },
