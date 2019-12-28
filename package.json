@@ -5,22 +5,22 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "nodemon src/server.js",
+    "start": "node src/server.js",
     "new-command": "node src/scripts/new-command.js"
   },
   "author": "Gabriel Petry",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.4.0",
-    "nodemon": "^1.19.2"
+    "eslint": "^6.8.0",
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "discord.js": "^11.5.1",
-    "node-opus": "^0.3.2",
+    "opusscript": "0.0.7",
     "sodium": "^3.0.2",
-    "ytdl-core": "^0.29.7",
-    "zlib-sync": "^0.1.5",
+    "ytdl-core": "^1",
+    "zlib-sync": "^0.1.6",
     "zucc": "^0.1.2"
   }
 }
