@@ -13,7 +13,8 @@ module.exports = {
 
     let next_song = sq.songs[1];
 
-    let current_song_info = await ytdl.getInfo(song.youtube_link);
+    let current_song_info = await ytdl.getInfo(song.youtube_link).catch(erro => console.log("errrrr   ", erro))
+
     let next_song_info = null;
 
     if(next_song)
@@ -22,14 +23,18 @@ module.exports = {
     let playing_status = [`Playing **${current_song_info.title}**`];
     if (next_song_info)
       playing_status.push(`Next song **${next_song_info.title}**`);
-    else
+    else {
       playing_status.push(`No more songs in the playlist`);
+      sq.playlist = '';
+    }
 
     sq.textChannel.send(`${playing_status.map(s => `${s}\n`)}`);
     sq.playing = true;
 
     let ytdl_option = { filter: 'audioonly' };
     let playStream_option = { type: 'opus' };
+
+
     const dispatcher = sq.connection
       .playStream(ytdl(song.youtube_link, ytdl_option), playStream_option)
       .on('end', () => {
@@ -42,6 +47,7 @@ module.exports = {
         module.exports.play(sq, message);
       })
       .on('error', error => console.log(error));
+
   },
   canPlay: async (sq, message) => {
     if (!sq) {
