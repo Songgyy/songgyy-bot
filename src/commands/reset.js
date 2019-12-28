@@ -5,7 +5,8 @@ module.exports = {
     run: async (client, message, args) => {
         if (message.member.voiceChannel)
             message.member.voiceChannel.leave();
-        client.Queue.delele(message.guild.id);
+        if (client.Queue)
+            client.Queue.delele(message.guild.id);
     },
 
     help: {
