@@ -4,6 +4,7 @@ services:
   bot:
     build: .
     image: gabrielpetry/songyy-bot
+    restart: unless-stopped
     volumes:
       - ./:/app/
     hostname: songyy-bot
