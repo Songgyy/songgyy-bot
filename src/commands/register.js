@@ -4,7 +4,7 @@ const guild = require("./../controllers/guild");
 module.exports = {
   run: async (client, message, args) => {
     const { id, name } = message.guild;
-    const username = args[0]
+    const username = args[0];
 
     if (!username) {
         return await message.channel.send(`Please, provide a username.`)
