@@ -3,6 +3,9 @@ const ytdl = require('ytdl-core');
 module.exports = {
   play: async (sq, message) => {
 
+    if (!sq)
+      return false;
+
     const song = sq.songs[0];
 
     if (!song) {
