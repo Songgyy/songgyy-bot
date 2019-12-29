@@ -26,10 +26,8 @@ module.exports = {
     let playing_status = [`Playing **${current_song_info.title}**`];
     if (next_song_info)
       playing_status.push(`Next song **${next_song_info.title}**`);
-    else {
+    else
       playing_status.push(`No more songs in the playlist`);
-      sq.playlist = '';
-    }
 
     sq.textChannel.send(`${playing_status.map(s => `${s}\n`)}`);
     sq.playing = true;
@@ -38,18 +36,25 @@ module.exports = {
     let playStream_option = { type: 'opus' };
 
 
-    const dispatcher = sq.connection
-      .playStream(ytdl(song.youtube_link, ytdl_option), playStream_option)
-      .on('end', () => {
-        sq.songs.shift();
-        if(sq.songs.length < 1) {
-          sq.playing = false;
-          sq.textChannel.send("Playlist ended!");
-          return;
-        }
-        module.exports.play(sq, message);
-      })
-      .on('error', error => console.log(error));
+    try {
+      const dispatcher = sq.connection
+        .playStream(ytdl(song.youtube_link, ytdl_option), playStream_option)
+        .on('end', () => {
+          sq.songs.shift();
+          if(sq.songs.length < 1) {
+            sq.playing = false;
+            sq.textChannel.send("Playlist ended!");
+            sq.playlist = '';
+            return;
+          }
+
+          module.exports.play(sq, message);
+        })
+        .on('error', error => console.log(error));
+    } catch (err) {
+      // duno ;(
+      console.log(err);
+    }
 
   },
   canPlay: async (sq, message) => {
