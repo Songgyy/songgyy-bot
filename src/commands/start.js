@@ -19,11 +19,13 @@ module.exports = {
     if (serverQueue.playlist === playlist)
       return await serverQueue.textChannel.send(`Already in ${playlist}`);
 
-    serverQueue.playlist = playlist;
 
     let songs = await Songs.getSongs(playlist, message.guild.id);
 
     if (songs.length < 1) return message.channel.send("No songs here");
+
+    serverQueue.playlist = playlist;
+
 
     serverQueue.playlistSongs = songs.length;
 

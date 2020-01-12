@@ -5,6 +5,10 @@ module.exports = {
 
     run: async (client, message, args) => {
         // Play songs
+        //
+        if (!serverQueue) {
+            return await message.channel.send(`not connected`)
+        }
         let youtube_link = args[0]
         if (!youtube_link) {
             return await message.channel.send(`Please, provide a valid link.`)
