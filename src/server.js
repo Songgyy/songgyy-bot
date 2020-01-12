@@ -3,6 +3,7 @@ const ytdl = require('ytdl-core');
 const axios = require('axios');
 const config = require('./config.json');
 const fs = require('fs');
+const io = require('socket.io')
 
 const client = new Discord.Client();
 // Commands collection
