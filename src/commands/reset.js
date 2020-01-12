@@ -6,7 +6,8 @@ module.exports = {
         if (message.member.voiceChannel)
             message.member.voiceChannel.leave();
         if (client.Queue)
-            client.Queue.delele(message.guild.id);
+            if (client.Queue)
+                client.Queue = new Map()
     },
 
     help: {

@@ -4,7 +4,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         const sq = client.Queue.get(message.guild.id);
-        if (sq.connection) {
+        if (sq && sq.connection) {
             if (sq.connection.dispatcher) {
                 sq.songs = [];
                 sq.connection.dispatcher.end();
