@@ -6,5 +6,5 @@ services:
     image: gabrielpetry/songyy-bot
     restart: unless-stopped
     volumes:
-      - ./:/app/
+      - ./src:/app/src
     hostname: songyy-bot

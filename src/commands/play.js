@@ -23,8 +23,8 @@ module.exports = {
         serverQueue.songs.push({ youtube_link });
 
         if (serverQueue.playing) {
-          serverQueue.textChannel.send("Already playing, added to queue");
-          return;
+            serverQueue.textChannel.send("Already playing, added to queue");
+            return;
         }
 
         player.play(serverQueue, message);

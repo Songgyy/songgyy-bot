@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core');
 const axios = require('axios');
 const config = require('./config.json');
 const fs = require('fs');
-const io = require('socket.io')
+const io = require('socket.io');
 
 const client = new Discord.Client();
 // Commands collection
@@ -24,7 +24,7 @@ fs.readdir(`${__dirname}/commands/`, (err, file) => {
   if (err) return console.log(err);
 
   let jsfile = file.filter(f => f.split(".").pop() === "js");
-  
+
   if (jsfile.length < 1) return console.log("No commands");
 
   jsfile.map(file => {
@@ -54,14 +54,14 @@ client.on('message', async message => {
 
   // get the args
   const args = message.content
-              .slice(config.prefix.length)
-              .trim()
-              .split(' ');
+    .slice(config.prefix.length)
+    .trim()
+    .split(' ');
 
   // get the command itself
   const command = args
-                 .shift()
-                 .toLowerCase();
+    .shift()
+    .toLowerCase();
 
   // Get the command from Collection
   let commandFile = client.commands.get(command);
@@ -73,8 +73,8 @@ client.on('message', async message => {
   if (aliasCommand)
     commandFile = client.commands.get(aliasCommand);
   // return the run method
-  if(commandFile) return commandFile.run(client, message, args);
- 
+  if (commandFile) return commandFile.run(client, message, args);
+
 });
 
 client.login(config.token);
